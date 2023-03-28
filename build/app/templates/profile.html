@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block main %}
+<main class="flex flex-col w-full m-4 items-center justify-center sm:w-11/12">
+    <h1 class="flex justify-center m-2 p-2 text-green-700 text-base sm:text-xl">User Profile</h1>
+    <section class="flex flex-wrap align-middle justify-center gap-2 w-min dark:bg-black dark:text-white">        
+        <div class="flex flex-col min-h-min border border-solid border-green-700 rounded-lg shadow-md">
+            <div class="flex flex-col sm:flex-row m-3">
+
+                <div class="flex flex-col p-1 shadow-md rounded-3xl">
+
+                    <div class="flex flex-col items-center justify-center p-2 sm:w-full">
+                        <h1 class="flex items-center justify-center w-12 h-12 border rounded-full p-2 bg-green-700 text-white">
+                            {{ acronymes }}
+                        </h1>
+                    </div>
+
+                    <hr>
+
+                    <div class="flex flex-col p-2 sm:w-full">
+                        <h1><b>Full Name</b><br>{{ user.full_name }}</h1>
+                        <hr>
+                        <h1><b>Email</b><br>{{ user.email_address }}</h1>
+                        <hr>
+                        <h1><b>Phone Number</b><br>{{ user.phone }}</h1>
+                    </div>
+                </div>
+
+                <article class="p-2 shadow-md rounded-3xl h-auto">
+                    <h1 class="text-2xl text-green-700">Books Borrowed</h1>
+                    <hr>
+                    {% if books %}
+                        {% for book in books %}
+                        <div class="flex flex-col items-center justify-center sm:flex-row">
+                            <h2 class="flex sm:w-full">{{ book.Book.bk_title }}</h2>
+                            <p>{{book.Issued.issued_id}}</p>
+                            <div class="sm:w-full">
+                                <div class="flex flex-row p-2">
+                                    <a href="/book_details/{{ book.Book.isbn_no }}" class="bg-green-700 border border-solid rounded-md p-1 text-center text-white">View</a>
+                                    <a href="/borrowed/return_book/{{ book.Issued.issued_id }}" class="bg-green-700 border border-solid rounded-md p-1 text-center text-white">Return</a>
+                                </div>                                
+                            </div>
+                        </div>
+                        <hr>
+                        {% endfor %}
+                    {% else %}
+                        <h1>No borrowed books yet</h1>
+                    {% endif %}
+                </article>
+                
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

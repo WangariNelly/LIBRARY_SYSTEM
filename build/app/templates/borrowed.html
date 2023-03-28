@@ -1,0 +1,28 @@
+{% extends 'base.html' %} {% block main %}
+<main class="m-4 p-2 justify-center">
+  <h1 class="flex flex-row justify-center p-4 mt-2 text-3xl text-green-700">Books Borrowed</h1>
+  <section
+    class="flex flex-wrap justify-center gap-2 max-w-full dark:bg-black dark:text-white"
+  >
+  {% if issued %}
+    {% for book in issued %}
+      <div class="flex flex-col w-60 border shadow-md rounded-xl p-3 text-xl">
+        <article class="m-2">
+          <h2 class="flex justify-center text-green-700">{{ book.Book.bk_title }}</h2>
+        </article>
+
+        <div class="flex justify-center">
+          <img src="{{ book.Book.thumbanail }}" alt="{{ book.Book.bk_title }}" class="w-full">
+        </div>
+        
+        <div class="flex flex-row justify-center w-full p-2">
+          <a href="/borrowed/more_details/{{ book.Issued.issued_id }}" class="bg-green-700 w-2/5 border border-solid rounded-md m-2 text-center text-white">View</a>
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <h1>No books borrowed</h1>
+  {% endif %}
+  </section>
+</main>
+{% endblock %}

@@ -1,0 +1,22 @@
+<header
+  class="sticky top-0 flex h-auto w-full flex-row justify-end bg-green-700 p-2 align-middle text-white"
+>
+  <section class="mx-auto flex min-w-full justify-end p-2">
+    <!-- Navigation Items -->
+    <div>
+      <button
+        id="mobile-menu-open-button"
+        class="flex text-3xl focus:outline-none sm:hidden"
+      >
+        &#9776;
+      </button>
+
+      <nav class="hidden space-x-8 text-xl sm:block" aria-label="main">
+        <a href="{{ url_for('main.home') }}">Home</a>
+        <a href="{{ url_for('main.new_book') }}">Edit Book</a>
+        <a href="{{ url_for('main.books') }}">Books List</a>
+        <a href="{{ url_for('issued_blueprint.books_issued') }}">Borrowed</a>
+      </nav>
+    </div>
+  </section>
+</header>

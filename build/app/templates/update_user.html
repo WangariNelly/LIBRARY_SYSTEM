@@ -1,0 +1,58 @@
+{% extends 'base.html' %} {% block main %}
+<main class="flex w-11/12 items-center justify-center">
+  <section
+    class="m-4 w-auto border-spacing-1 rounded-xl border border-solid border-green-700 dark:text-white"
+  >
+    <h2 class="m-3 inline-block w-full text-center text-3xl text-green-700">
+      Edit User
+    </h2>
+    <hr class="m-auto w-4/5 bg-green-700" />
+    <form
+      action="/user/update/{{ email_address }}"
+      method="post"
+      class="m-3 flex w-11/12 flex-col justify-center text-center"
+    >
+      <input
+        type="text"
+        placeholder="Fullname"
+        class="text-1xl required mt-2 border border-solid p-1"
+        ,
+        name="full_name"
+        value="{{ user.full_name }}"
+      />
+      <input
+        type="text"
+        placeholder="Email"
+        class="text-1xl mt-2 border border-solid p-1"
+        ,
+        name="email"
+        value="{{ user.email_address }}"
+      />
+      <input
+        type="text"
+        placeholder="Phone Number"
+        class="text-1xl mt-2 border border-solid p-1"
+        ,
+        name="phone"
+        value="{{ user.phone }}"
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        class="text-1xl mt-2 border border-solid p-1"
+        ,
+        name="password"
+        value="{{ user.password }}"
+      />
+      <input
+        type="submit"
+        value="Update"
+        class="w-auton mt-2 rounded-2xl border border-solid bg-green-700 p-1 text-2xl text-white"
+      />
+      <p class="p-3">
+        Already have an account? <a href="#" class="text-blue-700">Login</a>
+      </p>
+    </form>
+  </section>
+</main>
+{% endblock %}

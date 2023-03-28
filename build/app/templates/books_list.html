@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% block main %}
+<main class="flex w-11/12 justify-center">
+  <section
+    class="m-4 w-4/5 border-spacing-1 rounded-xl border border-solid border-green-700 dark:text-white"
+  >
+    <h2 class="m-3 inline-block w-full text-center text-3xl">Books</h2>
+    <hr class="m-auto w-4/5 bg-green-700" />
+    <!-- Single book card -->
+    {% for book in books %}
+
+    <div
+      class="w-19/20 m-3 flex border-spacing-1 flex-row justify-items-stretch rounded-lg border border-solid border-green-700 sm:flex-col sm:justify-between"
+    >
+      <a href="/book_details/{{ book.isbn_no }}">
+        <h2 class="md:w-11\/12 w-3/5 items-center p-2 text-xl">
+          Title: {{ book.bk_title }}
+        </h2>
+      </a>
+      <h3 class="md:w-11\/12 w-3/5 items-center p-2">
+        ISBN NO: {{ book.isbn_no }}
+      </h3>      
+    </div>
+    {% endfor %}
+    <!-- End single book card -->
+  </section>
+</main>
+{% endblock %}

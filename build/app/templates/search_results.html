@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% block main %}
+<main class="flex w-max-full justify-center">
+  <div class="flex flex-col w-full p-3">
+    <h1 class="text-green-700">Results for search {{ filter_res }}</h1>
+    {% for book in books %}
+      <div class="w-2/3 flex-row p-2 m-2 text-2xl align-middle justify-center">
+        <a href="/book_details/{{ book.isbn_no }}">
+          <h3 class="w-4/5 text-base">{{ book.bk_title }}</h3>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</main>
+{% endblock %}

@@ -1,0 +1,132 @@
+{% extends 'base.html' %} {% block main %}
+<main class="flex w-11/12 items-center justify-center">
+  <section
+    class="m-4 w-auto border-spacing-1 rounded-xl border border-solid border-green-700 dark:text-white"
+  >
+  {% if book_exists == True %}
+    <h2 class="m-3 inline-block w-full text-center text-3xl text-green-700">
+      Update Book
+    </h2>
+    <hr class="m-auto w-4/5 bg-green-700" />
+    <form
+      action="/book/update/{{ book.isbn_no }}"
+      method="post"
+      class="m-3 flex w-11/12 flex-col justify-center text-center"
+    >
+      <input
+        type="text"
+        placeholder="ISBN NO"
+        class="text-1xl required mt-2 border border-solid p-1"
+        name="isbn"
+        value="{{ book.isbn_no }}"
+      />
+      <input
+        type="text"
+        placeholder="Title"
+        class="text-1xl mt-2 border border-solid p-1"
+        name="title"
+        value="{{ book.bk_title }}"
+      />
+      <input
+        type="text"
+        placeholder="Author(s)"
+        class="text-1xl mt-2 border border-solid p-1"
+        name="author"
+        value="{{ book.bk_authors }}"
+      />
+      <input
+        type="text"
+        placeholder="Category"
+        class="text-1xl mt-2 border border-solid p-1"
+        name="category"
+        value="{{ book.categories }}"
+      />
+      <input
+        type="text"
+        placeholder="Thumbnail (url)"
+        class="text-1xl mt-2 border border-solid p-1"
+        name="thumbnail"
+        value="{{ book.thumbanail }}"
+      />
+      <input
+        type="text"
+        placeholder="Description..."
+        class="text-1xl mt-2 border border-solid p-1"
+        name="description"
+        value="{{ book.description }}"
+      />
+      <input
+        type="text"
+        placeholder="Year Published"
+        class="text-1xl mt-2 border border-solid p-1"
+        name="year_published"
+        value="{{ book.year_published }}"
+      />
+      <input
+        type="submit"
+        value="Update"
+        class="w-auton mt-2 rounded-2xl border border-solid bg-green-700 p-1 text-2xl text-white"
+      />
+    </form>
+    {% else %}
+    <h2 class="m-3 inline-block w-full text-center text-3xl text-green-700">
+      New Book
+    </h2>
+    <hr class="m-auto w-4/5 bg-green-700" />
+    <form
+      action="/books/new"
+      method="post"
+      class="m-3 flex w-11/12 flex-col justify-center text-center"
+    >
+      <input
+        type="text"
+        placeholder="ISBN NO"
+        class="text-1xl required mt-2 border border-solid p-1"
+        name="isbn"
+      />
+      <input
+        type="text"
+        placeholder="Title"
+        class="text-1xl mt-2 border border-solid p-1"
+        name="title"
+      />
+      <input
+        type="text"
+        placeholder="Author(s)"
+        class="text-1xl mt-2 border border-solid p-1"
+        name="author"
+      />
+      <input
+        type="text"
+        placeholder="Category"
+        class="text-1xl mt-2 border border-solid p-1"
+        name="category"
+      />
+      <input
+        type="text"
+        placeholder="Thumbnail (url)"
+        class="text-1xl mt-2 border border-solid p-1"
+        name="thumbnail"
+      />
+      <input
+        type="text"
+        placeholder="Description..."
+        class="text-1xl mt-2 border border-solid p-1"
+        name="description"
+      />
+      <input
+        type="text"
+        placeholder="Year Published"
+        class="text-1xl mt-2 border border-solid p-1"
+        name="year_published"
+      />
+      <input
+        type="submit"
+        value="Add"
+        class="w-auton mt-2 rounded-2xl border border-solid bg-green-700 p-1 text-2xl text-white"
+      />
+    </form>
+    {% endif %}
+  </section>
+</main>
+{% endblock %}

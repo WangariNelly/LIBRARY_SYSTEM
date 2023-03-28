@@ -1,0 +1,43 @@
+{% extends 'base.html' %} {% block main %}
+<main>
+  <section
+    class="full flex flex-col items-center justify-center dark:bg-black dark:text-white sm:flex-col"
+  >
+    <h1
+      class="m-5 flex justify-center p-2 text-4xl text-green-700 dark:bg-black sm:text-2xl"
+    >
+      Library Management System
+    </h1>
+    <div class="mt-28 flex flex-col gap-6 p-3 align-middle">
+      <!-- Search Section -->
+      <form
+        action="/book/search/"
+        method="post"
+        class="flex w-full border-spacing-1 flex-row justify-center rounded-xl border border-solid border-green-700 p-2"
+      >
+        <input
+          type="text"
+          placeholder="🔍Category,ISBN,Title,Author, or Year Published"
+          class="border-b-1 mr-2 h-8 w-2/3 border-spacing-1 border p-2 text-green-700"
+          name="filter_value"
+        />
+
+        <label for="filter" class="border-b-1 mr-2 h-8 p-1 text-green-700"
+          >Filter:</label
+        >
+        <select name="search-filter" id="search-filter" class="mr-2">
+          {% for key, value in filters.items() %}
+          <option value="{{ key }}">{{ value }}</option>
+          {% endfor %}
+        </select>
+
+        <input
+          type="submit"
+          value="Search"
+          class="w-1/4 border-spacing-1 rounded-l border border-gray-300 bg-green-700 p-1 text-white"
+        />
+      </form>
+    </div>
+  </section>
+</main>
+{% endblock %}

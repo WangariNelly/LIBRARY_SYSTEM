@@ -1,0 +1,51 @@
+{% extends 'base.html' %} {% block main %}
+<main class="flex w-11/12 items-center justify-center">
+  <section
+    class="m-4 w-auto border-spacing-1 rounded-xl border border-solid border-green-700 dark:text-white"
+  >
+    <h2 class="m-3 inline-block w-full text-center text-3xl text-green-700">
+      Login
+    </h2>
+    <hr class="m-auto w-4/5 bg-green-700" />
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="flex bg-red-600 border border-spacing-1 border-solid border-green-500 rounded-xl text-black m-3 p-2 justify-center">
+            {{ messages[0] }}
+        </div>
+    {% endif %}
+    {% endwith %}
+    <form
+      action="/login"
+      method="post"
+      class="m-3 flex w-11/12 flex-col justify-center text-center"
+    >
+      <input
+        type="text"
+        placeholder="Email"
+        class="text-1xl mt-2 border border-solid p-1"
+        ,
+        name="email"
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        class="text-1xl mt-2 border border-solid p-1"
+        ,
+        name="password"
+      />
+      <input
+        type="submit"
+        value="Login"
+        class="mt-2 w-auto rounded-2xl border border-solid bg-green-700 p-1 text-2xl text-white"
+      />
+      <div class="flex m-3 p-2 justify-center">
+        <input type="checkbox" id="remember" name="remember" value="Remember" class="mr-2">
+        <label for="remember">Remember Me</label><br>
+      </div>
+      <p class="p-3">
+        No account? <a href="{{ url_for('user_blueprint.signup_template') }}" class="text-blue-700">Signup</a>
+      </p>
+    </form>
+  </section>
+</main>
+{% endblock %}

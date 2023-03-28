@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "tailwindcss": "^3.2.4"
+  },
+  "name": "app",
+  "description": "This is a web application for helping librarians keep track of books issued.",
+  "version": "1.0.0",
+  "main": "tailwind.config.js",
+  "devDependencies": {
+    "prettier-plugin-tailwindcss": "^0.2.2"
+  },
+  "scripts": {
+    "tailwind": "npx tailwindcss -i ./static/src/input.css -o ./static/styles/styles.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

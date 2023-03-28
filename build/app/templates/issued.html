@@ -1,0 +1,44 @@
+{% extends 'base.html' %} {% block main %}
+<main class="flex w-11/12 items-center justify-center">
+  <section
+    class="m-4 w-auto border-spacing-1 rounded-xl border border-solid border-green-700 dark:text-white"
+  >
+    <h2 class="m-3 inline-block w-full text-center text-3xl text-green-700">
+      Issue New Book
+    </h2>
+    <hr class="m-auto w-4/5 bg-green-700" />
+    <form
+      action="/book/borrow"
+      method="post"
+      class="m-3 flex w-11/12 flex-col justify-center text-center"
+    >
+      <input
+        type="text"
+        placeholder="ISBN NO"
+        class="text-1xl required mt-2 border border-solid p-1"
+        name="book_isbn"
+        value="{{ new_issue['book_isbn'] }}"
+      />
+      <input
+        type="text"
+        placeholder="User ID"
+        class="text-1xl mt-2 border border-solid p-1"
+        name="user_id"
+        value="{{ new_issue['user_id'] }}"
+      />
+      <input
+        type="text"
+        placeholder="Librarian ID"
+        class="text-1xl mt-2 border border-solid p-1"
+        name="librarian_id"
+        value="{{ new_issue['librarian_id'] }}"
+      />
+      <input
+        type="submit"
+        value="Issue Book"
+        class="w-auton mt-2 rounded-2xl border border-solid bg-green-700 p-1 text-2xl text-white"
+      />
+    </form>
+  </section>
+</main>
+{% endblock %}

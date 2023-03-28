@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block main %}
+<h1>Books Returned</h1>
+
+{% for book in returned_books %}
+<p>{{ book.Issued.bk_title }}</p>
+{% endfor %}
+
+{% endblock %}
