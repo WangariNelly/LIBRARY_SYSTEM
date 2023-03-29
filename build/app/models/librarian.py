@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ Librarian Table """
 
-from common.base import Base, myql_session
+from common.base import Base, myql_session 
 from sqlalchemy import Column, DateTime, Integer, String
 from sqlalchemy.sql import func
 from flask import session
@@ -66,9 +66,9 @@ class Librarian(Base):
         return librarian['librarian_id']
 
     @classmethod
-    def get_libarians(cls):
+    def get_librarians(cls):
         """
-        Return a list of libraians
+        Return a list of librarians
         """
         libraians = myql_session.query(Librarian).all()
         return [librarian for librarian in libraians]
