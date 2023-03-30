@@ -4,13 +4,14 @@ This is a web application for helping librarians keep track of books issued.
 
 # Technologies
 
-Software and Hardware
-Operating system - Ubuntu 22.04LTS
-Development tools and languages used- Vs Code ,Python3 Flask9 And Nodejs(Backend)
-HTML & Tailwind Css- Frontend & ReactJs
-Figma- UX/UI
-Processor - Intel(R) Core(TM) i7-4600U CPU @ 2.10GHz, Ram 4GB
-Database -Mysql 
+#Software and Hardware
+
+*Operating system - Ubuntu 22.04LTS
+*Development tools and languages used- Vs Code ,Python3 Flask9 And Nodejs(Backend)
+ HTML & Tailwind Css- Frontend & ReactJs
+*Figma- UX/UI
+*Processor - Intel(R) Core(TM) i7-4600U CPU @ 2.10GHz, Ram 4GB
+*Database -Mysql 
 
 
 
